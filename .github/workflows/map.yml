@@ -30,7 +30,7 @@ jobs:
           SERVER_BASE: http://74.50.109.219:4254/plugins/oz---admin-utils
           SHOW_PLAYERS: "0"
           SHOW_AREAS: "0"
-          ORIENT: ORIENT: h
+          ORIENT: h
         run: python build_map.py
       - uses: actions/upload-pages-artifact@v3
         with:
