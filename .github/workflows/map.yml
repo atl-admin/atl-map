@@ -1,0 +1,49 @@
+name: Build server map
+
+on:
+  schedule:
+    - cron: "7,37 * * * *"
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: map
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install numpy pillow
+      - name: Build map
+        env:
+          LIVE_DATA_TOKEN: ${{ secrets.LIVE_DATA_TOKEN }}
+          SERVER_BASE: http://74.50.109.219:4254/plugins/oz---admin-utils
+          SHOW_PLAYERS: "1"
+          SHOW_AREAS: "1"
+          ORIENT: both
+        run: python build_map.py
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - uses: actions/deploy-pages@v4
+        id: deploy
+
+  keepalive:
+    runs-on: ubuntu-latest
+    permissions:
+      actions: write
+    steps:
+      - uses: actions/checkout@v4
+      - run: gh api -X PUT repos/${{ github.repository }}/actions/workflows/map.yml/enable
+        env:
+          GH_TOKEN: ${{ github.token }}
