@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+-#!/usr/bin/env python3
 """Build a server map (PNG + viewer page) from the OZ Admin Utils routes.
 
 Environment:
@@ -21,7 +21,7 @@ SHOW_AREAS = os.environ.get("SHOW_AREAS", "1") == "1"
 ORIENT = os.environ.get("ORIENT", "both")
 OUT = os.environ.get("OUT_DIR", "site")
 PAGES_DIR = os.environ.get("MAP_PAGES_DIR", "")
-FX = ORIENT in ("none")
+FX = ORIENT in ("v")
 FZ = ORIENT in ("none")
 
 NAMES = {0:'Air',1:'Stone',2:'Gravel',3:'Gravel',4:'Gravel',5:'Dirt',6:'Mud',7:'Farmland',8:'Farmland',9:'Forest floor',10:'Forest floor',11:'Forest floor',12:'Moss',13:'Volcanic',14:'Obsidian',15:'Obsidian',16:'Dry dirt',17:'Desert sand',18:'Beach sand',19:'Sand',20:'Desert stone',21:'Sandstone',22:'Sandstone',23:'Red clay',24:'Rubble',25:'Snow',26:'Ice',27:'Underwater',28:'Corals',29:'Hellstone',30:'Hellstone',31:'Cobble',50:'Coal',51:'Sulfur',52:'Iron',53:'Aluminium',54:'Tungsten',55:'Gold'}
