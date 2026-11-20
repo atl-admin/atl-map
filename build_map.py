@@ -18,7 +18,7 @@ BASE = os.environ.get("SERVER_BASE", "http://74.50.109.219:4254/plugins/oz---adm
 TOKEN = os.environ.get("LIVE_DATA_TOKEN", "").strip()
 SHOW_PLAYERS = os.environ.get("SHOW_PLAYERS", "1") == "1"
 SHOW_AREAS = os.environ.get("SHOW_AREAS", "1") == "1"
-ORIENT = os.environ.get("ORIENT", "v")
+ORIENT = os.environ.get("ORIENT", "both")
 OUT = os.environ.get("OUT_DIR", "site")
 PAGES_DIR = os.environ.get("MAP_PAGES_DIR", "")
 FX = ORIENT in ("none")
