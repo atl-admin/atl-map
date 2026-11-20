@@ -1,4 +1,4 @@
--#!/usr/bin/env python3
+#!/usr/bin/env python3
 """Build a server map (PNG + viewer page) from the OZ Admin Utils routes.
 
 Environment:
